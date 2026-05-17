@@ -63,6 +63,10 @@ The platform was designed around modern cloud-native principles:
 - CSS
 - Vanilla JavaScript
 
+## Live Website 
+
+https://scalablefrontendwebapp.z38.web.core.windows.net/
+
 ### Backend
 
 - Node.js
