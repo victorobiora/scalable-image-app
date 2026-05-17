@@ -155,6 +155,5 @@ docker buildx build --platform linux/amd64
 
 ## Author
 
-**Victor Obiora*
+**Victor Obiora**
 
-```
