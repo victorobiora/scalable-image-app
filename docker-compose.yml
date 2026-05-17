@@ -1,0 +1,16 @@
+# version: "3.9"
+
+services:
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+  worker:
+    build: ./worker
+    command: npm run start
+    env_file:
+      - .env
+

@@ -1,0 +1,21 @@
+{
+  "name": "scalable-worker",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.1",
+    "@azure/cosmos": "^3.17.0",
+    "@azure/storage-queue": "^12.18.0",
+    "@azure/storage-blob": "^12.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+      "@types/node": "^20.0.0"
+  }
+}

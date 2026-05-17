@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UlsterGram</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="single-post">
+    <header class="post-header">
+      <button class="back-btn" onclick="history.back()">← Back</button>
+      <span class="post-title" id="heading-post-title">Post</span>
+    </header>
+
+    <section class="post-card">
+      <div id="image-container" class="post-media"></div>
+
+      <div id="actions" class="post-actions">
+        <div class="engagement-row">
+          <button id="likeBtn" class="icon-btn">❤️ </button>
+
+          <div class="rating">
+            <div class="star-rating" data-rating="0">
+              <span data-value="1">★</span>
+              <span data-value="2">★</span>
+              <span data-value="3">★</span>
+              <span data-value="4">★</span>
+              <span data-value="5">★</span>
+            </div>
+
+            <select id="ratingSelect">
+              <option value="">Rate</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
+            <button id="rateBtn" class="secondary-btn">Submit</button>
+          </div>
+        </div>
+
+        <div class="comments-section">
+          <div class="comment-input">
+            <input id="commentInput" placeholder="Add a comment…" />
+            <button id="commentBtn">Post</button>
+          </div>
+
+          <ul id="comments" class="comments-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="image.js"></script>
+    <script>
+      const stars = document.querySelectorAll(".star-rating span");
+      const select = document.getElementById("ratingSelect");
+
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          const value = star.dataset.value;
+
+          select.value = value;
+
+          stars.forEach((s) => {
+            s.classList.toggle("active", s.dataset.value <= value);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

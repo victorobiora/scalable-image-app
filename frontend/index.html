@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>COM769 Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <header class="topbar">
+      <h1 class="logo">UlsterGram</h1>
+
+
+      <div class="role-toggle">
+        <input type="radio" name="role" value="consumer" id="consumer" />
+        <label for="consumer">Consumer</label>
+
+        <input type="radio" name="role" value="creator" id="creator" checked />
+        <label for="creator">Creator</label>
+
+        <span class="slider"></span>
+      </div>
+    </header>
+
+
+    <section id="creator-only" class="upload-card">
+      <h2>Create a post</h2>
+
+      <input type="file" id="fileInput" accept="image/*" />
+
+      <div class="inputs">
+        <input type="text" id="title" placeholder="Title" />
+        <input type="text" id="caption" placeholder="Caption" />
+        <input type="text" id="location" placeholder="Location" />
+      </div>
+
+      <button id="upload-image" class="primary-btn">Upload</button>
+    </section>
+
+
+    <main>
+      <h2 class="feed-title">Media Feed</h2>
+      <div id="media" class="media-grid"></div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
