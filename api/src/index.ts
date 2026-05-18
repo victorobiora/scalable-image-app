@@ -245,6 +245,21 @@ app.get(
   }
 );
 
+//get api key 
+app.get("/get-key",
+  async (req: Request, res: Response) => {
+   
+      const { role } = req.query as { role: string };
+
+      console.log(process.env.CREATOR_API_KEY)
+
+      if(role === "creator"){
+        return res.json({status: "ok", api_key: process.env.CREATOR_API_KEY})
+      }else {
+         return res.json({status: "ok", api_key: process.env.CONSUMER_API_KEY})
+      }
+  })
+
 
 app.get("/health", requireRole(["consumer", "creator"]), (_req, res) => {
   res.json({ status: "ok" });

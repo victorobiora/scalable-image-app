@@ -15,6 +15,7 @@ const updateView = () => {
 document.querySelectorAll("input[name='role']").forEach((radio) => {
   radio.addEventListener("change", (e) => {
     generalFunctionsAndData.setCookie("role", e.target.value);
+    generalFunctionsAndData.fetchAndSetApiKeyBasedOnRole(e.target.value);
     updateView();
   });
 });
@@ -53,8 +54,9 @@ function renderMediaItem(item) {
 
   img.style.cursor = "pointer";
   img.onclick = () => {
-    window.location.href = `${window.location.origin}/image.html?id=${item.id}`;
-  };
+  
+  window.location.href = url;
+};
 
   wrapper.appendChild(spinner);
   wrapper.appendChild(img);
@@ -62,9 +64,12 @@ function renderMediaItem(item) {
   return wrapper;
 }
 
-function loadMedia() {
+async function loadMedia() {
   const gallery = document.getElementById("media");
   gallery.innerHTML = `<div class="spinner"></div>`;
+
+await generalFunctionsAndData.fetchAndSetApiKeyBasedOnRole("creator");
+
 
   fetch(`${generalFunctionsAndData.API_BASE}/media`, {
     headers: { "x-api-key": generalFunctionsAndData.getApiKey() },
@@ -79,7 +84,6 @@ function loadMedia() {
       });
     });
 }
-
 
 async function uploadImage() {
   const fileInput = document.getElementById("fileInput");
@@ -97,7 +101,7 @@ async function uploadImage() {
       headers: {
         "x-api-key": generalFunctionsAndData.getApiKey(),
       },
-    }
+    },
   );
 
   const { uploadUrl, blobName } = await intentRes.json();
