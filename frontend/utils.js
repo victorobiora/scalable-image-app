@@ -33,4 +33,3 @@ function getApiKey() {
 }
 
 export {API_BASE, setCookie, getCookie, getApiKey, fetchAndSetApiKeyBasedOnRole }
-// export {API_BASE, API_KEY, CREATOR_API_KEY, setCookie, getCookie, getApiKey, fetchAndSetApiKeyBasedOnRole }
